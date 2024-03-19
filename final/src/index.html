@@ -17,20 +17,19 @@
 
 <body>
 	
-	<!-- Embedding the audio file -->
-	<audio autoplay>
-	  <source src="./App/Assets/FreshPrinceSong.mp3" type="audio/mpeg">
-	  Your browser does not support the audio element.
-  </audio>
+	<!-- Button to play/pause the audio -->
+	<div class="audio-button" id="audioButton">
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+			<path d="M8 5v14l11-7z"/>
+			<path d="M0 0h24v24H0z" fill="none"/>
+		</svg>
+	</div>
 
-  <!-- Script to hide the audio player -->
-  <script>
-	  window.addEventListener('load', function() {
-		  var audioPlayer = document.querySelector('audio');
-		  audioPlayer.style.display = 'none';
-	  });
-  </script>
-
+	<!-- Audio element -->
+	<audio id="audioPlayer" autoplay loop>
+		<source src="./App/Assets/FreshPrinceSong.mp3" type="audio/mpeg">
+		Your browser does not support the audio element.
+	</audio>
 
 	<canvas class="threejs"></canvas>
 	<script type="module" src="./index.js"></script>
@@ -48,6 +47,36 @@
 			<span class="close">Close</span>
 		</div>
 	</div>
+
+	<script>
+		// Get references to the audio player and the button
+		const audioPlayer = document.getElementById('audioPlayer');
+		const audioButton = document.getElementById('audioButton');
+
+		// Function to toggle play/pause on button click
+		function toggleAudio() {
+			if (audioPlayer.paused) {
+				audioPlayer.play();
+				audioButton.innerHTML = `
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+						<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+						<path d="M0 0h24v24H0z" fill="none"/>
+					</svg>
+				`;
+			} else {
+				audioPlayer.pause();
+				audioButton.innerHTML = `
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+						<path d="M8 5v14l11-7z"/>
+						<path d="M0 0h24v24H0z" fill="none"/>
+					</svg>
+				`;
+			}
+		}
+
+		// Add click event listener to the button
+		audioButton.addEventListener('click', toggleAudio);
+	</script>
 
 </body>
 
