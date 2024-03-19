@@ -159,4 +159,18 @@ body {
     display: block; /* Ensure the image is displayed as a block element */
     margin: auto; /* Center the image horizontally within its container */
   }
-  
+
+.audio-button {
+    position: fixed;
+    top: 20px; /* Adjust as needed */
+    right: 20px; /* Adjust as needed */
+    z-index: 9999; /* Ensure it's above other content */
+    cursor: pointer;
+}
+
+/* Optionally, you can add some styling to the button */
+.audio-button svg {
+    fill: #fff; /* Adjust color as needed */
+    width: 32px; /* Adjust size as needed */
+    height: 32px; /* Adjust size as needed */
+}
