@@ -111,7 +111,14 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0 auto;
     color: white;
+    max-width: 60%; /* Limit the maximum width of the modal */
+    max-height: 80vh; /* Limit the maximum height of the modal */
+    overflow-y: auto; /* Enable vertical scrolling if content overflows */
     /* Set text color to white within the modal */
+}
+
+.modal-content p {
+    font-size: 12px; /* Adjust the font size of paragraph elements */
 }
 
 .close {
@@ -154,13 +161,14 @@ body {
 }
 
 #modalImage {
-    max-width: 100%; /* Ensure the image does not exceed the width of its container */
-    max-height: 100%; /* Ensure the image does not exceed the height of its container */
+    max-width: 90%; /* Ensure the image does not exceed the width of its container */
+    max-height: 80%; /* Ensure the image does not exceed the height of its container */
     display: block; /* Ensure the image is displayed as a block element */
     margin: auto; /* Center the image horizontally within its container */
   }
+  
 
-.audio-button {
+  .audio-button {
     position: fixed;
     top: 20px; /* Adjust as needed */
     right: 20px; /* Adjust as needed */
