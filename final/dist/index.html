@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="shortcut icon" href="#">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+	
+	<meta charset="utf-8">
+	<meta property="og:title" content="Geekazon's 3D Playground" />
+	<meta property="og:description" content="Three D Portfolio" />
+	<meta property="og:url" content="https://threedplayground.onrender.com" />
+	<meta property="og:image" content="https://threedplayground.onrender.com/App/Assets/3D_Avatar.jpg" />
+	<title>Andrew Lowery's 3D Playground (ThrowBack Fresh Prince)</title>
+  <script type="module" crossorigin src="./assets/index-f18870a3.js"></script>
+  <link rel="stylesheet" href="./assets/index-01a730b6.css">
+</head>
+
+<body>
+	
+	<!-- Button to play/pause the audio -->
+	<div class="audio-button" id="audioButton">
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+			<path d="M8 5v14l11-7z"/>
+			<path d="M0 0h24v24H0z" fill="none"/>
+		</svg>
+	</div>
+
+	<!-- Audio element -->
+	<audio id="audioPlayer" autoplay loop>
+		<source src="./assets/FreshPrinceSong-8d29d5cd.mp3" type="audio/mpeg">
+		Your browser does not support the audio element.
+	</audio>
+
+	<canvas class="threejs"></canvas>
+	
+	<div class="overlay"></div>
+	<h1 class="loading">Loading Experience... <span id="progressPercentage"></span>%</h1>
+	<button class="start">START</button>
+
+	<div id="myModal" class="modal">
+		<div class="modal-wrapper">
+			<div class="modal-content">
+				<h1 id="modalTitle">Modal Title</h1>
+				<img id="modalImage" src="" alt="Modal Image">
+				<p id="modalDescription">Modal Description</p>
+			</div>
+			<span class="close">Close</span>
+		</div>
+	</div>
+
+	<script>
+		// Get references to the audio player and the button
+		const audioPlayer = document.getElementById('audioPlayer');
+		const audioButton = document.getElementById('audioButton');
+
+		// Function to toggle play/pause on button click
+		function toggleAudio() {
+			if (audioPlayer.paused) {
+				audioPlayer.play();
+				audioButton.innerHTML = `
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+						<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+						<path d="M0 0h24v24H0z" fill="none"/>
+					</svg>
+				`;
+			} else {
+				audioPlayer.pause();
+				audioButton.innerHTML = `
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+						<path d="M8 5v14l11-7z"/>
+						<path d="M0 0h24v24H0z" fill="none"/>
+					</svg>
+				`;
+			}
+		}
+
+		// Add click event listener to the button
+		audioButton.addEventListener('click', toggleAudio);
+	</script>
+
+</body>
+
+</html>
